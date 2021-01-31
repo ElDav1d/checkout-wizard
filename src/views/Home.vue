@@ -1,8 +1,18 @@
 <template>
   <main>
     <h1>This the home page</h1>
-    <router-link to="/mis-datos">Comprar</router-link>
+    <router-link :to="dataInputPath">Checkout</router-link>
   </main>
 </template>
 
-<script></script>
+<script>
+import config from "../config.js";
+
+export default {
+  data() {
+    return {
+      dataInputPath: `/${config.DATA_INPUT_PATH}`,
+    };
+  },
+};
+</script>

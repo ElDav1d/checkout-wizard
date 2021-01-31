@@ -7,7 +7,7 @@
       Una vez efectuado el pago del producto, recibirás un e-mail con todos los
       detalles.
     </p>
-    <router-link to="/mis-datos">Volver</router-link>
+    <router-link :to="dataInputPath">Anterior</router-link>
     <button v-if="!sendingData" @click="buttonClickHandler">Pagar</button>
     <div class="Loader" v-if="sendingData">
       <spinner size="large" :message="sendingMessage" />
@@ -18,12 +18,16 @@
 <script>
 import Spinner from "vue-simple-spinner";
 import { mapGetters } from "vuex";
+import config from "../config.js";
 
 export default {
   data() {
     return {
       sendingData: false,
       sendingMessage: "estamos enviando tus datos",
+      dataInputPath: `/${config.DATA_INPUT_PATH}`,
+      succesInputPath: `/${config.SUCCESS_PATH}`,
+      errorInputPath: `/${config.ERROR_PATH}`,
     };
   },
   components: {
@@ -69,11 +73,11 @@ export default {
           console.log("Success:", response);
           this.storeSuccessData();
           this.resetData();
-          this.goToStep("enhorabuena");
+          this.goToStep(this.succesInputPath);
         })
         .catch(error => {
           console.error("Error:", error);
-          this.goToStep("error");
+          this.goToStep(this.errorInputPath);
         });
     },
     buttonClickHandler() {

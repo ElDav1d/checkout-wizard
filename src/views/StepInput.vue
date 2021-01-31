@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import config from "../config.js";
 export default {
   data() {
     return {
@@ -37,6 +38,7 @@ export default {
       nameIsValid: true,
       lastName: this.$store.getters.getUserData.lastName,
       lastNameIsValid: true,
+      paymentPath: `/${config.PAYMENT_PATH}`,
     };
   },
   methods: {
@@ -71,7 +73,7 @@ export default {
       event.preventDefault();
       this.saveUserData(this.getUserData());
       this.resetUserData();
-      this.goToStep("pago-del-producto");
+      this.goToStep(this.paymentPath);
     },
   },
   computed: {

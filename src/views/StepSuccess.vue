@@ -4,7 +4,7 @@
     <h3>{{ getSuccessData.icon }}</h3>
     <h2>¡{{ getSuccessData.title }} {{ getSuccessData.name }}!</h2>
     <p>{{ getSuccessData.copy }}</p>
-    <router-link to="/">Volver</router-link>
+    <router-link to="/">Comprar</router-link>
   </main>
 </template>
 
