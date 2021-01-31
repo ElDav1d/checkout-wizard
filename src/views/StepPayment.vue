@@ -33,7 +33,7 @@ export default {
     ...mapGetters(["getUserData"]),
   },
   methods: {
-    retrieveData() {
+    packUserData() {
       return {
         name: this.$store.getters.getUserData.name,
         lastName: this.$store.getters.getUserData.lastName,
@@ -49,7 +49,11 @@ export default {
     goToStep(step) {
       this.$router.push(step);
     },
-    postData() {
+    storeSuccessData() {
+      const userName = this.$store.getters.getUserData.name;
+      this.$store.dispatch("saveSuccessData", userName);
+    },
+    postUserData() {
       this.sendingData = true;
       fetch(
         "https://checkout-wizard-a8937-default-rtdb.firebaseio.com/user.json",
@@ -58,11 +62,12 @@ export default {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(this.retrieveData()),
+          body: JSON.stringify(this.packUserData()),
         }
       )
         .then(response => {
           console.log("Success:", response);
+          this.storeSuccessData();
           this.resetData();
           this.goToStep("enhorabuena");
         })
@@ -72,7 +77,7 @@ export default {
         });
     },
     buttonClickHandler() {
-      this.postData();
+      this.postUserData();
     },
   },
 };
