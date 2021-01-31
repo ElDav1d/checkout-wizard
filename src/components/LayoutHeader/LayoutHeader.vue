@@ -1,7 +1,7 @@
 <template>
   <header>
     HEADER
-    <main-navigation />
+    <MainNavigation />
   </header>
 </template>
 

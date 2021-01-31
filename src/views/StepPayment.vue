@@ -11,7 +11,7 @@
       <router-link :to="dataInputPath">Anterior</router-link>
       <button v-if="!sendingData" @click="buttonClickHandler">Pagar</button>
       <div class="Loader" v-if="sendingData">
-        <spinner size="large" :message="sendingMessage" />
+        <Spinner size="large" :message="sendingMessage" />
       </div>
     </main>
   </transition>
