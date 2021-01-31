@@ -1,18 +1,20 @@
 <template>
-  <main>
-    <h1>StepPayment</h1>
-    <h2>Estimado/a {{ getUserData.name }}</h2>
-    <p>¡Estás a un sólo paso de finalizar tu compra!</p>
-    <p>
-      Una vez efectuado el pago del producto, recibirás un e-mail con todos los
-      detalles.
-    </p>
-    <router-link :to="dataInputPath">Anterior</router-link>
-    <button v-if="!sendingData" @click="buttonClickHandler">Pagar</button>
-    <div class="Loader" v-if="sendingData">
-      <spinner size="large" :message="sendingMessage" />
-    </div>
-  </main>
+  <transition name="slide">
+    <main>
+      <h1>StepPayment</h1>
+      <h2>Estimado/a {{ getUserData.name }}</h2>
+      <p>¡Estás a un sólo paso de finalizar tu compra!</p>
+      <p>
+        Una vez efectuado el pago del producto, recibirás un e-mail con todos
+        los detalles.
+      </p>
+      <router-link :to="dataInputPath">Anterior</router-link>
+      <button v-if="!sendingData" @click="buttonClickHandler">Pagar</button>
+      <div class="Loader" v-if="sendingData">
+        <spinner size="large" :message="sendingMessage" />
+      </div>
+    </main>
+  </transition>
 </template>
 
 <script>
@@ -99,5 +101,15 @@ export default {
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.5);
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 1s, transform 1s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
 }
 </style>
