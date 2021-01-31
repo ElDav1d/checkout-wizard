@@ -33,9 +33,9 @@
 export default {
   data() {
     return {
-      name: "",
+      name: this.$store.getters.getUserData.name,
       nameIsValid: true,
-      lastName: "",
+      lastName: this.$store.getters.getUserData.lastName,
       lastNameIsValid: true,
     };
   },
