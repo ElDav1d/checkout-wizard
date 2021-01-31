@@ -1,6 +1,12 @@
 <template>
   <main>
     <h1>StepPayment</h1>
+    <h2>Estimado/a {{ getUserData.name }}</h2>
+    <p>¡Estás a un sólo paso de finalizar tu compra!</p>
+    <p>
+      Una vez efectuado el pago del producto, recibirás un e-mail con todos los
+      detalles.
+    </p>
     <router-link to="/mis-datos">Volver</router-link>
     <button v-if="!sendingData" @click="buttonClickHandler">Pagar</button>
     <div class="Loader" v-if="sendingData">
@@ -11,6 +17,7 @@
 
 <script>
 import Spinner from "vue-simple-spinner";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -21,6 +28,9 @@ export default {
   },
   components: {
     Spinner,
+  },
+  computed: {
+    ...mapGetters(["getUserData"]),
   },
   methods: {
     retrieveData() {
