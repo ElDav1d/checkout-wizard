@@ -9,11 +9,22 @@
 </template>
 
 <script>
+import config from "../config.js";
 import { mapGetters } from "vuex";
 
 export default {
+  data() {
+    return {
+      homePath: `/${config.HOME_PATH}`,
+    };
+  },
   computed: {
     ...mapGetters(["getSuccessData"]),
+  },
+  mounted() {
+    addEventListener("popstate", () => {
+      location.href = this.homePath;
+    });
   },
 };
 </script>
