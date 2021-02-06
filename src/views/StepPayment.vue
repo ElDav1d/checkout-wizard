@@ -9,16 +9,14 @@
         los detalles.
       </p>
       <router-link :to="dataInputPath">Anterior</router-link>
-      <button v-if="!sendingData" @click="buttonClickHandler">Pagar</button>
-      <div class="Loader" v-if="sendingData">
-        <Spinner size="large" :message="sendingMessage" />
-      </div>
+      <Loader v-if="sendingData" :message="sendingMessage" />
+      <button v-else @click="buttonClickHandler">Pagar</button>
     </main>
   </transition>
 </template>
 
 <script>
-import Spinner from "vue-simple-spinner";
+import Loader from "../components/Loader/Loader.vue";
 import { mapGetters } from "vuex";
 import config from "../config.js";
 
@@ -33,7 +31,7 @@ export default {
     };
   },
   components: {
-    Spinner,
+    Loader,
   },
   computed: {
     ...mapGetters(["getUserData"]),
