@@ -1,0 +1,23 @@
+@import "./config.scss";
+
+// ----- Media Queries ----- //
+
+@mixin mq($point) {
+  @if $point == S {
+    @media (min-width: 568px) {
+      @content;
+    }
+  } @else if $point == M {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $point == L {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  } @else if $point == XL {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  }
+}
