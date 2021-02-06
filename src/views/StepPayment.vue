@@ -25,18 +25,25 @@ export default {
     return {
       sendingData: false,
       sendingMessage: "estamos enviando tus datos",
-      dataInputPath: `/${config.DATA_INPUT_PATH}`,
-      succesInputPath: `/${config.SUCCESS_PATH}`,
-      errorInputPath: `/${config.ERROR_PATH}`,
+      currentPath: config.PAYMENT_PATH,
+      dataInputPath: config.DATA_INPUT_PATH,
+      succesInputPath: config.SUCCESS_PATH,
+      errorInputPath: config.ERROR_PATH,
     };
   },
   components: {
     Loader,
   },
+  created() {
+    this.saveProgressStatus(this.currentPath);
+  },
   computed: {
     ...mapGetters(["getUserData"]),
   },
   methods: {
+    saveProgressStatus(currentPath) {
+      this.$store.dispatch("saveProgressStatus", currentPath);
+    },
     packUserData() {
       return {
         name: this.$store.getters.getUserData.name,

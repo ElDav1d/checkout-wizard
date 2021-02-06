@@ -32,7 +32,8 @@ export default {
       labelStringLastName: "Apellido",
       inputIDLastName: "lastName",
       lastName: "",
-      paymentPath: `/${config.PAYMENT_PATH}`,
+      currentPath: config.DATA_INPUT_PATH,
+      nextPath: config.PAYMENT_PATH,
     };
   },
   components: {
@@ -74,10 +75,14 @@ export default {
       event.preventDefault();
       this.saveUserData(this.getUserData());
       this.resetUserData();
-      this.goToStep(this.paymentPath);
+      this.goToStep(this.nextPath);
+    },
+    saveProgressStatus(currentPath) {
+      this.$store.dispatch("saveProgressStatus", currentPath);
     },
   },
   created() {
+    this.saveProgressStatus(this.currentPath);
     const { persistedName, persistedLastName } = this.getPersistedData();
     this.name = persistedName;
     this.lastName = persistedLastName;

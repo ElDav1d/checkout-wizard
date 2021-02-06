@@ -15,8 +15,8 @@ export default {
   name: "main-navigation-desktop",
   data() {
     return {
-      homePath: `/${config.HOME_PATH}`,
-      successPath: `/${config.SUCCESS_PATH}`,
+      homePath: config.HOME_PATH,
+      successPath: config.SUCCESS_PATH,
     };
   },
 };

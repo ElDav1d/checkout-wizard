@@ -17,11 +17,20 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      homePath: `/${config.HOME_PATH}`,
+      homePath: config.HOME_PATH,
+      currentPath: config.SUCCESS_PATH,
     };
+  },
+  methods: {
+    saveProgressStatus(currentPath) {
+      this.$store.dispatch("saveProgressStatus", currentPath);
+    },
   },
   computed: {
     ...mapGetters(["getSuccessData"]),
+  },
+  created() {
+    this.saveProgressStatus(this.currentPath);
   },
   mounted() {
     addEventListener("popstate", () => {

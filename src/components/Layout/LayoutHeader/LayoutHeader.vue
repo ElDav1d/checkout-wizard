@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import MainNavigationDesktop from "../MainNavigation/MainNavigationDesktop/MainNavigationDesktop.vue";
-import MainNavigationMobile from "../MainNavigation/MainNavigationMobile/MainNavigationMobile.vue";
+import MainNavigationDesktop from "../../MainNavigation/MainNavigationDesktop/MainNavigationDesktop.vue";
+import MainNavigationMobile from "../../MainNavigation/MainNavigationMobile/MainNavigationMobile.vue";
 
 export default {
   name: "layout-header",

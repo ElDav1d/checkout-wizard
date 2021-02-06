@@ -8,31 +8,31 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    redirect: `/${config.HOME_PATH}`,
+    redirect: config.HOME_PATH,
     component: Home
   },
   {
-    path: `/${config.HOME_PATH}`,
+    path: config.HOME_PATH,
     name: "Home",
     component: () => import("../views/Home.vue")
   },
   {
-    path: `/${config.ERROR_PATH}`,
+    path: config.ERROR_PATH,
     name: "StepError",
     component: () => import("../views/StepError.vue")
   },
   {
-    path: `/${config.DATA_INPUT_PATH}`,
+    path: config.DATA_INPUT_PATH,
     name: "StepInput",
     component: () => import("../views/StepInput.vue")
   },
   {
-    path: `/${config.PAYMENT_PATH}`,
+    path: config.PAYMENT_PATH,
     name: "StepPayment",
     component: () => import("../views/StepPayment.vue")
   },
   {
-    path: `/${config.SUCCESS_PATH}`,
+    path: config.SUCCESS_PATH,
     name: "StepSucess",
     component: () => import("../views/StepSuccess.vue")
   },

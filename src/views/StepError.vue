@@ -18,11 +18,20 @@ export default {
   data() {
     return {
       name: this.$store.getters.getUserData.name,
-      paymentPath: `/${config.PAYMENT_PATH}`,
+      paymentPath: config.PAYMENT_PATH,
+      currentPath: config.ERROR_PATH,
       title: "¡Ooooooops!",
       copy:
         "No te preocupes, aún podemos continuar con el pago desde donde lo dejaste.",
     };
+  },
+  methods: {
+    saveProgressStatus(currentPath) {
+      this.$store.dispatch("saveProgressStatus", currentPath);
+    },
+  },
+  created() {
+    this.saveProgressStatus(this.currentPath);
   },
   computed: {
     personalMessage() {

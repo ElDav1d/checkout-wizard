@@ -16,7 +16,8 @@ export default new Vuex.Store({
       copy:
         "El proceso de compra ha finalizado con éxito. En breve recibirás un email con todos los detalles. ¡Muchas gracias!",
       icon: "diploma.svg"
-    }
+    },
+    progressStatus: "",
   },
   getters: {
     getUserData: state => {
@@ -25,6 +26,9 @@ export default new Vuex.Store({
     getSuccessData: state => {
       return state.successData;
     },
+    getProgressStatus: state => {
+      return state.progressStatus;
+    }
   },
   mutations: {
     SAVE_USER_DATA(state, userData) {
@@ -32,7 +36,10 @@ export default new Vuex.Store({
     },
     SAVE_SUCCESS_DATA(state, userName) {
       state.successData.name = userName;
-    }
+    },
+    SAVE_PROGRESS_STATUS(state, progressStatus) {
+      state.progressStatus = progressStatus;
+    },
   },
   actions: {
     saveUserData({ commit }, userData) {
@@ -40,7 +47,10 @@ export default new Vuex.Store({
     },
     saveSuccessData({ commit }, successData) {
       commit("SAVE_SUCCESS_DATA", successData);
-    }
+    },
+    saveProgressStatus({ commit }, progressStatus) {
+      commit("SAVE_PROGRESS_STATUS", progressStatus);
+    },
   },
   plugins: [createPersistedState()]
 });
