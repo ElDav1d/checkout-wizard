@@ -1,0 +1,53 @@
+@import "~@/assets/stylesheets/foundation/helpers";
+
+.LayoutFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: $spacing-S;
+  box-shadow: $box-shadow-medium;
+
+  @include mq(S) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  @include mq(M) {
+    padding-top: $spacing-M;
+  }
+
+  @include mq(L) {
+    padding-top: $spacing-L;
+    padding-right: $spacing-M;
+    padding-bottom: $spacing-M;
+    padding-left: $spacing-M;
+  }
+
+  @include mq(XL) {
+    padding-top: $spacing-XL;
+    padding-right: $spacing-L;
+    padding-bottom: $spacing-L;
+    padding-left: $spacing-L;
+  }
+
+  &_LogoLink {
+    height: 2.25rem;
+    margin-bottom: $spacing-S;
+
+    @include mq(S) {
+      margin-bottom: 0;
+    }
+    @include mq(L) {
+      height: 2.5rem;
+    }
+  }
+
+  &_Copy {
+    color: $grey;
+    font-size: $font-size-S;
+  }
+}
