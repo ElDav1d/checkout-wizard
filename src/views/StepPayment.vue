@@ -72,10 +72,10 @@ export default {
         }
       )
         .then(response => {
-          console.log("Success:", response);
           this.storeSuccessData();
           this.resetData();
           this.goToStep(this.succesInputPath);
+          return response;
         })
         .catch(error => {
           console.error("Error:", error);

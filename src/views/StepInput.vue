@@ -2,28 +2,18 @@
   <main>
     <h1>StepInput</h1>
     <form>
-      <fieldset>
-        <label for="name">Nombre</label>
-        <input
-          id="name"
-          type="text"
-          required
-          v-model="name"
-          @blur="inputBlurHandler"
-        />
-        <div v-if="!nameIsValid">required</div>
-      </fieldset>
-      <fieldset>
-        <label for="lastName">Apellido</label>
-        <input
-          id="lastName"
-          type="text"
-          required
-          v-model="lastName"
-          @blur="inputBlurHandler"
-        />
-        <div v-if="!lastNameIsValid">required</div>
-      </fieldset>
+      <InputGroupText
+        :inputID="inputIDName"
+        :labelText="labelStringName"
+        @inputIsBlurred="inputHandler"
+        :initialValue="name"
+      />
+      <InputGroupText
+        :inputID="inputIDLastName"
+        :labelText="labelStringLastName"
+        @inputIsBlurred="inputHandler"
+        :initialValue="lastName"
+      />
       <input type="submit" @click="submitDataHandler" :disabled="!validated" />
     </form>
   </main>
@@ -31,27 +21,31 @@
 
 <script>
 import config from "../config.js";
+
 export default {
+  name: "step-input",
   data() {
     return {
-      name: this.$store.getters.getUserData.name,
-      nameIsValid: true,
-      lastName: this.$store.getters.getUserData.lastName,
-      lastNameIsValid: true,
+      labelStringName: "Nombre",
+      inputIDName: "name",
+      name: "",
+      labelStringLastName: "Apellido",
+      inputIDLastName: "lastName",
+      lastName: "",
       paymentPath: `/${config.PAYMENT_PATH}`,
     };
   },
+  components: {
+    InputGroupText: () =>
+      import("../components/InputGroupText/InputGroupText.vue"),
+  },
   methods: {
-    setValue(key, value) {
-      this[key] = value;
+    setInputValue(id, value) {
+      this[id] = value;
     },
-    inputBlurHandler(event) {
-      const keyString = `${event.target.id}IsValid`;
-      if (!event.target.value) {
-        this.setValue(keyString, false);
-      } else {
-        this.setValue(keyString, true);
-      }
+    inputHandler(payload) {
+      const { id, value } = payload;
+      this.setInputValue(id, value);
     },
     getUserData() {
       return {
@@ -66,6 +60,13 @@ export default {
       this.name = "";
       this.lastName = "";
     },
+    getPersistedData() {
+      return {
+        persistedName: this.$store.getters.getUserData.name,
+        persistedLastName: this.$store.getters.getUserData.lastName,
+      };
+    },
+
     goToStep(step) {
       this.$router.push(step);
     },
@@ -75,6 +76,11 @@ export default {
       this.resetUserData();
       this.goToStep(this.paymentPath);
     },
+  },
+  created() {
+    const { persistedName, persistedLastName } = this.getPersistedData();
+    this.name = persistedName;
+    this.lastName = persistedLastName;
   },
   computed: {
     validated() {
