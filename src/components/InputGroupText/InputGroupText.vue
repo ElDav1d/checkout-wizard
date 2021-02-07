@@ -19,7 +19,7 @@ export default {
     return {
       value: this.$props.initialValue,
       id: this.$props.inputID,
-      isValid: false,
+      isValid: true,
       label: this.$props.labelText,
     };
   },
