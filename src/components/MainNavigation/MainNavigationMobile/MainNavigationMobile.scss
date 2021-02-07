@@ -1,0 +1,41 @@
+@import "~@/assets/stylesheets/foundation/helpers";
+
+.MainNavigationMobile {
+  @extend %is-hidden-from-M;
+  padding: $spacing-XS;
+  background-color: $white;
+
+  .bm {
+    &-menu {
+      background-color: $white;
+      padding-top: $spacing-XL;
+      box-shadow: $box-shadow-top;
+    }
+
+    &-item-list {
+      margin-left: $spacing-S;
+
+      a {
+        font-size: $font-size-M;
+        padding: $spacing-XS;
+      }
+    }
+  }
+
+  .bm-burger {
+    &-button {
+      top: $spacing-XS + $spacing-XS !important;
+      right: $spacing-XS + $spacing-XS !important;
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    &-bars {
+      background-color: $black;
+    }
+  }
+
+  .line-style {
+    height: 0.25rem;
+  }
+}

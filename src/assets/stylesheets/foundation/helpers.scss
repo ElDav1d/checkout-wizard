@@ -1,5 +1,9 @@
 @import "./config.scss";
 
+// ---------------------------
+// Mixins
+// ---------------------------
+
 // ----- Media Queries ----- //
 
 @mixin mq($point) {
@@ -19,5 +23,54 @@
     @media (min-width: 1440px) {
       @content;
     }
+  }
+}
+
+// ---------------------------
+// Placeholders
+// ---------------------------
+
+// ----- Device Display ----- //
+
+%is-hidden {
+  &-until-M {
+    display: none;
+
+    @include mq(M) {
+      display: block;
+    }
+  }
+
+  &-from-M {
+    @include mq(M) {
+      display: none;
+    }
+  }
+}
+
+// ----- Reseters ----- //
+
+%is-clean-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// ----- Containers ----- //
+
+%is-container {
+  padding-left: $spacing-S;
+  padding-right: $spacing-S;
+
+  @include mq(L) {
+    padding-right: $spacing-M;
+    padding-left: $spacing-M;
+  }
+
+  @include mq(XL) {
+    max-width: $content-max-width;
+    margin: auto;
+    padding-right: 0;
+    padding-left: 0;
   }
 }

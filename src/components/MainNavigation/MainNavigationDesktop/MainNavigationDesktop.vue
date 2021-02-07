@@ -1,16 +1,18 @@
 <template>
-  <nav>
-    <ul>
-      <li><router-link :to="homePath">Home</router-link></li>
-      <li>
-        <router-link :to="successPath">StepSuccess</router-link>
-      </li>
-    </ul>
-  </nav>
+  <section class="MainNavigationDesktop">
+    <nav class="MainNavigationDesktop_Container">
+      <LinkedLogo />
+      <div class="MainNavigationDesktop_MainLinks">
+        <MainNavigationItems />
+      </div>
+    </nav>
+  </section>
 </template>
 
 <script>
 import config from "../../../config.js";
+import LinkedLogo from "../../../components/LinkedLogo/LinkedLogo.vue";
+import MainNavigationItems from "../MainNavigationItems/MainNavigationItems.vue";
 export default {
   name: "main-navigation-desktop",
   data() {
@@ -19,5 +21,13 @@ export default {
       successPath: config.SUCCESS_PATH,
     };
   },
+  components: {
+    LinkedLogo,
+    MainNavigationItems,
+  },
 };
 </script>
+
+<style lang="scss">
+@import "./MainNavigationDesktop.scss";
+</style>

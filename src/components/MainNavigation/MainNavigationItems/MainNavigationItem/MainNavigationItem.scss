@@ -1,0 +1,32 @@
+@import "~@/assets/stylesheets/foundation/helpers";
+
+%main-navigation-item-base {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.MainNavigationItem {
+  @extend %main-navigation-item-base;
+
+  &_Wrapper {
+    &:not(:last-child) {
+      @include mq(M) {
+        margin-right: $spacing-XS;
+      }
+    }
+  }
+
+  img {
+    margin-right: $spacing-XXS;
+  }
+
+  &-caret {
+    @extend %main-navigation-item-base;
+    flex-direction: row-reverse;
+
+    span {
+      margin-right: $spacing-XXS;
+    }
+  }
+}

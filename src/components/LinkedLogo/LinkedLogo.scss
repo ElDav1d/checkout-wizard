@@ -1,0 +1,10 @@
+@import "~@/assets/stylesheets/foundation/config";
+
+.LinkedLogo {
+  display: inline-block;
+  padding: $spacing-XXS;
+
+  &_Image {
+    height: inherit;
+  }
+}

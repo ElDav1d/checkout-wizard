@@ -1,0 +1,25 @@
+@import "~@/assets/stylesheets/foundation/helpers";
+
+.MainNavigationDesktop {
+  @extend %is-hidden-until-M;
+  width: 100%;
+  background-color: $white;
+  box-shadow: $box-shadow-medium;
+
+  &_Container {
+    @extend %is-container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $spacing-S;
+    padding-bottom: $spacing-S;
+  }
+
+  ul {
+    @extend %is-clean-list;
+  }
+
+  &_MainLinks {
+    display: flex;
+  }
+}

@@ -1,28 +1,26 @@
 <template>
-  <div>
-    MENU
-    <span>
-      <Slide :closeOnNavigation="true" right role="list">
-        <router-link :to="homePath" role="listitem">Home</router-link>
-        <router-link :to="successPath" role="listitem">StepSuccess</router-link>
-      </Slide>
-    </span>
-  </div>
+  <section class="MainNavigationMobile">
+    <LinkedLogo />
+    <Slide :closeOnNavigation="true" right>
+      <MainNavigationItems />
+    </Slide>
+  </section>
 </template>
 <script>
 import { Slide } from "vue-burger-menu";
-import config from "../../../config.js";
+import LinkedLogo from "../../LinkedLogo/LinkedLogo.vue";
+import MainNavigationItems from "../MainNavigationItems/MainNavigationItems.vue";
 
 export default {
   name: "main-navigation-mobile",
-  data() {
-    return {
-      homePath: config.HOME_PATH,
-      successPath: config.SUCCESS_PATH,
-    };
-  },
   components: {
     Slide,
+    LinkedLogo,
+    MainNavigationItems,
   },
 };
 </script>
+
+<style lang="scss">
+@import "./MainNavigationMobile.scss";
+</style>
