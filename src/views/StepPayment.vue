@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <main>
+    <article>
       <h1>StepPayment</h1>
       <h2>Estimado/a {{ getUserData.name }}</h2>
       <p>¡Estás a un sólo paso de finalizar tu compra!</p>
@@ -11,7 +11,7 @@
       <router-link :to="dataInputPath">Anterior</router-link>
       <Loader v-if="sendingData" :message="sendingMessage" />
       <button v-else @click="buttonClickHandler">Pagar</button>
-    </main>
+    </article>
   </transition>
 </template>
 

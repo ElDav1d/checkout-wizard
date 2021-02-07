@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <article>
     <h1>StepInput</h1>
     <form>
       <InputGroupText
@@ -16,7 +16,7 @@
       />
       <input type="submit" @click="submitDataHandler" :disabled="!validated" />
     </form>
-  </main>
+  </article>
 </template>
 
 <script>

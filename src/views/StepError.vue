@@ -1,13 +1,13 @@
 <template>
   <transition name="slide">
-    <main>
+    <article>
       <h1>{{ title }}</h1>
       <h2>{{ personalMessage }}.</h2>
       <p>
         {{ copy }}
       </p>
       <router-link :to="paymentPath">Volver</router-link>
-    </main>
+    </article>
   </transition>
 </template>
 

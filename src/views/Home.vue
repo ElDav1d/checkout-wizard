@@ -1,9 +1,9 @@
 <template>
   <transition name="slide">
-    <main>
+    <article>
       <h1>This the home page</h1>
       <router-link :to="nextPath">Checkout</router-link>
-    </main>
+    </article>
   </transition>
 </template>
 
