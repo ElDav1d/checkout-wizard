@@ -1,0 +1,18 @@
+@import "~@/assets/stylesheets/foundation/helpers";
+
+.LayoutDialogContainer {
+  @extend %is-container;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border-radius: $border-radius-smooth;
+  box-shadow: $box-shadow-medium;
+  min-height: 35vh;
+  padding: $spacing-S $spacing-XS;
+
+  @include mq(M) {
+    min-height: 25vh;
+  }
+}

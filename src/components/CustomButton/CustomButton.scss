@@ -1,0 +1,24 @@
+@import "~@/assets/stylesheets/foundation/helpers";
+
+.CustomButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: $font-size-M;
+  color: $white;
+  background-color: $color-primary;
+  border: 3px solid $color-primary;
+  border-radius: 999em;
+  padding: $spacing-XS $spacing-S;
+  min-width: 10rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.85;
+    img {
+      transform: translateX($spacing-XXS);
+      transition: all 0.3s ease;
+    }
+  }
+}

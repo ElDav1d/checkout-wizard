@@ -1,0 +1,13 @@
+@import "~@/assets/stylesheets/foundation/helpers";
+
+.LayoutProgressBar {
+  min-height: 5rem;
+
+  @include mq(M) {
+    min-height: 9em;
+  }
+
+  @include mq(L) {
+    min-height: 11.875rem;
+  }
+}

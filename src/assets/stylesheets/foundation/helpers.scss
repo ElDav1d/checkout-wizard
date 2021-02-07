@@ -59,12 +59,17 @@
 // ----- Containers ----- //
 
 %is-container {
-  padding-left: $spacing-S;
-  padding-right: $spacing-S;
+  margin-left: $spacing-S;
+  margin-right: $spacing-S;
+
+  @include mq(M) {
+    margin-right: $spacing-L;
+    margin-left: $spacing-L;
+  }
 
   @include mq(L) {
-    padding-right: $spacing-M;
-    padding-left: $spacing-M;
+    margin-right: $spacing-XL;
+    margin-left: $spacing-XL;
   }
 
   @include mq(XL) {

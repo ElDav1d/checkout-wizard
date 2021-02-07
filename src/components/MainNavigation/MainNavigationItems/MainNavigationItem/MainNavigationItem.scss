@@ -12,7 +12,11 @@
   &_Wrapper {
     &:not(:last-child) {
       @include mq(M) {
-        margin-right: $spacing-XS;
+        margin-right: $spacing-S;
+      }
+
+      @include mq(L) {
+        margin-right: $spacing-L;
       }
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="LayoutProgressBar">
     <transition name="fade" mode="in-out">
       <div v-if="getProgressStatus === progressStatusStepOne">
         <img src="../../../assets/images/step-current-1.svg" />
@@ -39,6 +39,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./LayoutProgressBar.scss";
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1s, transform 1s;

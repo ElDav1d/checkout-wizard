@@ -1,0 +1,17 @@
+@import "~@/assets/stylesheets/foundation/helpers";
+
+.LayoutDialogCopyContent {
+  text-align: center;
+
+  &_Heading {
+    font-family: $font-family-secondary;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-S;
+    font-size: $font-size-XL;
+
+    @include mq(M) {
+      margin-bottom: $spacing-S;
+      font-size: $font-size-XXL;
+    }
+  }
+}
