@@ -1,9 +1,19 @@
 <template>
   <section class="LayoutProgressBar">
     <transition name="fade" mode="in-out">
-      <div v-if="getProgressStatus === progressStatusStepOne">
-        <img src="../../../assets/images/step-current-1.svg" />
-        <img src="../../../assets/images/step-left-2.svg" />
+      <div
+        class="LayoutProgressBar_Container"
+        v-if="getProgressStatus === progressStatusStepOne"
+      >
+        <div class="LayoutProgressBar_Item">
+          <img src="../../../assets/images/step-current-1.svg" />
+          <div>{{ textStepOne }}</div>
+        </div>
+        <div class="LayoutProgressBar_Stroke" />
+        <div class="LayoutProgressBar_Item-left">
+          <img src="../../../assets/images/step-left-2.svg" />
+          <div>{{ textStepTwo }}</div>
+        </div>
       </div>
       <div v-else-if="getProgressStatus === progressStatusStepTwo">
         <img src="../../../assets/images/step-checkmark.svg" />
@@ -30,6 +40,8 @@ export default {
       progressStatusStepTwo: config.PAYMENT_PATH,
       progressStatusSuccess: config.SUCCESS_PATH,
       progressStatusError: config.ERROR_PATH,
+      textStepOne: "Mis datos",
+      textStepTwo: "Pago",
     };
   },
   computed: {

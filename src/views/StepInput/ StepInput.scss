@@ -1,0 +1,34 @@
+@import "~@/assets/stylesheets/foundation/helpers";
+
+.StepInput {
+  &_CtaBlock {
+    display: flex;
+    flex-direction: column;
+
+    @include mq(M) {
+      width: 100%;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    &Item {
+      &:not(:last-child) {
+        margin-bottom: $spacing-M;
+        @include mq(M) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 1s, transform 1s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+}

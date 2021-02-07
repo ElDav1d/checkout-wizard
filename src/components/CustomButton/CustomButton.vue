@@ -1,7 +1,11 @@
 <template>
-  <button class="CustomButton" @click="buttonClick">
+  <button
+    :class="back ? 'CustomButton-back' : 'CustomButton'"
+    @click="buttonClick"
+  >
     <span>{{ title }}</span>
-    <img src="../../assets/images/arrow-next.svg" />
+    <img v-if="back" src="../../assets/images/arrow-back.svg" />
+    <img v-else src="../../assets/images/arrow-next.svg" />
   </button>
 </template>
 <script>
@@ -16,6 +20,9 @@ export default {
     text: {
       type: String,
       required: true,
+    },
+    back: {
+      type: Boolean,
     },
   },
   methods: {

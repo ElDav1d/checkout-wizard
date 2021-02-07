@@ -24,7 +24,7 @@ const routes = [
   {
     path: config.DATA_INPUT_PATH,
     name: "StepInput",
-    component: () => import("../views/StepInput.vue")
+    component: () => import("../views/StepInput/StepInput.vue")
   },
   {
     path: config.PAYMENT_PATH,

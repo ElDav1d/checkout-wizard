@@ -5,10 +5,13 @@
 $black: black;
 $white: white;
 $blue: #3d8fcb;
+$red: #de3931;
 $grey: #bdbdbd;
+$grey-medium: #e6e6e6;
 $grey-light: #f5f5f5;
 
 $color-primary: $blue;
+$color-error: $red;
 
 // ---------------------------
 // Typography
@@ -20,9 +23,10 @@ $font-family-secondary: "Raleway", Helvetica, Arial, sans-serif;
 $font-weight-bold: 700;
 
 $font-size-default: 16px;
-$font-size-S: 0.625rem;
+$font-size-XS: 0.625rem;
+$font-size-S: 0.875rem;
 $font-size-M: 1rem;
-$font-size-L: 1.25rem;
+$font-size-L: 1.125rem;
 $font-size-XL: 1.5rem;
 $font-size-XXL: 1.875rem;
 
@@ -36,6 +40,9 @@ $spacing-S: 1rem;
 $spacing-M: 1.5rem;
 $spacing-L: 2rem;
 $spacing-XL: 3rem;
+$spacing-XXL: 10rem;
+$spacing-BIG: 15rem;
+$spacing-HUGE: 22.5rem;
 
 $content-max-width: 1200px;
 

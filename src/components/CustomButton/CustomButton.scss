@@ -1,24 +1,63 @@
 @import "~@/assets/stylesheets/foundation/helpers";
 
-.CustomButton {
+%custom-buttom-base {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: $font-size-M;
+  border-radius: 999em;
+  font-size: $font-size-L;
+  min-width: 10rem;
+  transition: all 0.3s ease;
+  padding: $spacing-XS $spacing-S;
+}
+
+%custom-button-hover {
+  opacity: 0.85;
+
+  img {
+    transition: all 0.3s ease;
+  }
+}
+
+.CustomButton {
+  @extend %custom-buttom-base;
   color: $white;
   background-color: $color-primary;
   border: 3px solid $color-primary;
-  border-radius: 999em;
-  padding: $spacing-XS $spacing-S;
-  min-width: 10rem;
-  transition: all 0.3s ease;
 
   &:hover {
-    opacity: 0.85;
+    @extend %custom-button-hover;
     img {
       transform: translateX($spacing-XXS);
-      transition: all 0.3s ease;
+    }
+  }
+
+  &:disabled {
+    background-color: $grey;
+    border: 3px solid $grey;
+
+    img {
+      opacity: 0;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-back {
+    @extend %custom-buttom-base;
+    flex-direction: row-reverse;
+    color: $color-primary;
+    background-color: $white;
+    border: 3px solid $color-primary;
+
+    &:hover {
+      @extend %custom-button-hover;
+      img {
+        transform: translateX(-$spacing-XXS);
+      }
     }
   }
 }

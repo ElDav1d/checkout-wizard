@@ -1,14 +1,17 @@
 <template>
-  <fieldset>
-    <label :for="id">{{ label }}</label>
+  <fieldset class="InputGroupText">
+    <label class="InputGroupText_Label" :for="id">{{ label }}</label>
     <input
+      class="InputGroupText_Input"
       :id="id"
       type="text"
       required
       v-model="value"
       @blur="inputBlurHandler"
     />
-    <div v-if="!isValid">required</div>
+    <div class="InputGroupText_ErrorMessage" v-if="!isValid">
+      {{ errorMessage }}
+    </div>
   </fieldset>
 </template>
 
@@ -21,6 +24,7 @@ export default {
       id: this.$props.inputID,
       isValid: true,
       label: this.$props.labelText,
+      errorMessage: "Por favor, rellena éste campo",
     };
   },
   props: {
@@ -49,3 +53,6 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+@import "./InputGroupText.scss";
+</style>

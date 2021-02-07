@@ -1,18 +1,19 @@
 <template>
   <transition name="slide">
-    <article>
+    <LayoutDialogContainer>
       <h1>{{ title }}</h1>
       <h2>{{ personalMessage }}.</h2>
       <p>
         {{ copy }}
       </p>
       <router-link :to="paymentPath">Volver</router-link>
-    </article>
+    </LayoutDialogContainer>
   </transition>
 </template>
 
 <script>
 import config from "../config.js";
+import LayoutDialogContainer from "../components/Layout/LayoutDialogContainer/LayoutDialogContainer.vue";
 
 export default {
   data() {
@@ -25,6 +26,7 @@ export default {
         "No te preocupes, aún podemos continuar con el pago desde donde lo dejaste.",
     };
   },
+  components: { LayoutDialogContainer },
   methods: {
     saveProgressStatus(currentPath) {
       this.$store.dispatch("saveProgressStatus", currentPath);
