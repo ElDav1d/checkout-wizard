@@ -10,7 +10,7 @@
   border-radius: $border-radius-smooth;
   box-shadow: $box-shadow-medium;
   min-height: 35vh;
-  padding: $spacing-L;
+  padding: $spacing-L $spacing-S;
 
   @include mq(M) {
     min-height: 25vh;
@@ -23,7 +23,7 @@
     padding-left: $spacing-BIG;
   }
 
-  @include mq(L) {
+  @include mq(XL) {
     min-height: 55vh;
     padding-right: $spacing-HUGE;
     padding-left: $spacing-HUGE;

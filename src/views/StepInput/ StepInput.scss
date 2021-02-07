@@ -13,7 +13,7 @@
 
     &Item {
       &:not(:last-child) {
-        margin-bottom: $spacing-M;
+        margin-bottom: $spacing-S;
         @include mq(M) {
           margin-bottom: 0;
         }

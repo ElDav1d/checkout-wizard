@@ -29,7 +29,7 @@ const routes = [
   {
     path: config.PAYMENT_PATH,
     name: "StepPayment",
-    component: () => import("../views/StepPayment.vue")
+    component: () => import("../views/StepPayment/StepPayment.vue")
   },
   {
     path: config.SUCCESS_PATH,

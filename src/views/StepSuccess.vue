@@ -1,18 +1,19 @@
 <template>
   <transition name="slide">
-    <article>
+    <LayoutDialogContainer>
       <h1>StepSuccess</h1>
       <h3>{{ getSuccessData.icon }}</h3>
       <h2>¡{{ getSuccessData.title }} {{ getSuccessData.name }}!</h2>
       <p>{{ getSuccessData.copy }}</p>
       <router-link to="/">Comprar</router-link>
-    </article>
+    </LayoutDialogContainer>
   </transition>
 </template>
 
 <script>
 import config from "../config.js";
 import { mapGetters } from "vuex";
+import LayoutDialogContainer from "../components/Layout/LayoutDialogContainer/LayoutDialogContainer.vue";
 
 export default {
   data() {
@@ -21,6 +22,7 @@ export default {
       currentPath: config.SUCCESS_PATH,
     };
   },
+  components: { LayoutDialogContainer },
   methods: {
     saveProgressStatus(currentPath) {
       this.$store.dispatch("saveProgressStatus", currentPath);
