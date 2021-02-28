@@ -2,7 +2,7 @@
   <router-link class="LinkedLogo" :to="homePath">
     <img
       class="LinkedLogo_Image"
-      src="./Logo.jpg"
+      src="./Logo.png"
       :title="title"
       :alt="title"
     />
@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       homePath: config.HOME_PATH,
-      title: "Logo de We Are Marketing",
+      title: "Your logo here",
     };
   },
 };

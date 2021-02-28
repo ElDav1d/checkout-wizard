@@ -13,7 +13,7 @@ export default {
   name: "layout-footer",
   data() {
     return {
-      copy: "2020 © We Are Marketing",
+      copy: "2021 © Company",
     };
   },
   components: {
